@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KerbalPackageManager
 {
-    class Settings
+    public class Settings
     {
         public string KerbalPath { get; set; }
     }

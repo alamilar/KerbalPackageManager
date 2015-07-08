@@ -12,25 +12,36 @@ namespace KerbalPackageManager
     public class KPM
     {
         public string SettingsPath { get; set; }
-        private Settings settings;
-
+        public Settings Settings;
+        public ModManager Manager;
 
         public KPM()
         {
             SettingsPath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "settings.json");
             if (File.Exists(SettingsPath))
             {
-                settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(SettingsPath));
+                Settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(SettingsPath));
             }
             else
             {
-                settings = new Settings();
+                Settings = new Settings();
             }
+
+            Manager = new ModManager(Path.GetTempPath(), Settings);
         }
 
         public KPM(string settings_path)
         {
             SettingsPath = settings_path;
         }
+
+        public void SaveSettings()
+        {
+            string settings_json = JsonConvert.SerializeObject(Settings);
+            File.WriteAllText(SettingsPath, settings_json);
+        }
+
+
+        
     }
 }

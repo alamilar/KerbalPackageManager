@@ -24,5 +24,10 @@ namespace KerbalPackageManager
         public Mod()
         {
         }
+
+        public override string ToString()
+        {
+            return Name + " " + Description + " " + Website + "\r\n " + Data.DestinationPath + " " + Data.LocalPath + " " + Data.RemotePath;
+        }
     }
 }

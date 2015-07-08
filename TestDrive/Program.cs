@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KerbalPackageManager;
 using Newtonsoft.Json;
+using System.IO;
 
 namespace TestDrive
 {
@@ -12,7 +13,8 @@ namespace TestDrive
     {
         static void Main(string[] args)
         {
-            var x = new KPM();
+            var manager = new KPM();
+            manager.Settings.KerbalPath = @"C:\Program Files (x86)\Steam\steamapps\common\Kerbal Space Program";
         }
     }
 }

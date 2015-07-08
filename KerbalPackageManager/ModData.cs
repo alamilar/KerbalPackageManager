@@ -9,9 +9,13 @@ namespace KerbalPackageManager
 {
     public class ModData
     {
+        public enum Destination
+        {
+            GameData
+        };
         public string RemotePath { get; set; }
         public string LocalPath { get; set; }
-        public string DestinationPath { get; set; }
+        public Destination DestinationPath { get; set; }
 
     }
 }
